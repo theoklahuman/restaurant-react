@@ -1,12 +1,17 @@
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
 import Navbar from './Navbar'
+import Footer from './Footer'
 import './App.css'
+import './index.css'
+import "../src/scss/styles.scss"
+import * as bootstrap from "bootstrap";
 
 function App() {
 
   return (
-    <Navbar />
+    <div>
+      <Navbar />
+      <Footer />
+    </div>
   )
 }
 

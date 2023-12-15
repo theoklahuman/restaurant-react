@@ -1,10 +1,12 @@
+import mainLogo from "./assets/mcd.jpg"
+
 function Navbar() {
   return (
     <>
       <nav className="navbar navbar-expand-lg bg-body-tertiary">
         <div className="container-fluid">
           <a className="navbar-brand" href="/">
-            <img src="images/mcd.jpg" alt="logo" width="30" height="24" />
+            <img src={mainLogo} alt="logo" width="30" height="24" />
           </a>
           <button
             className="navbar-toggler"
@@ -39,9 +41,7 @@ function Navbar() {
                   id="donations-page"
                   className="nav-link active"
                   aria-current="page"
-                  href="#"
-                  data-bs-toggle="modal"
-                  data-bs-target=".modal"
+                  href="/donations"
                 >
                   Request A Donation
                 </a>
@@ -76,6 +76,17 @@ function Navbar() {
                 >
                   My Account
                 </a>
+                <ul className="dropdown-menu">
+                    <li>
+                    <a className="dropdown-item" href="/">Account Dashboard</a> 
+                    </li>
+                    <li>
+                    <a className="dropdown-item" href="/">Sign In/Register</a> 
+                    </li>
+                    <li>
+                    <a className="dropdown-item" href="/">Sign Out</a> 
+                    </li>
+                </ul>
               </li>
             </ul>
           </div>
