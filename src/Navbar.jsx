@@ -1,6 +1,33 @@
-import mainLogo from "./assets/mcd.jpg"
+import mainLogo from "./assets/mcd.jpg";
 
-function Navbar() {
+function LoggedIn() {
+  return (
+    <>
+      <li>
+        <a className="dropdown-item" href="/">
+          Account Dashboard
+        </a>
+      </li>
+      <li>
+        <a className="dropdown-item" href="/">
+          Sign Out
+        </a>
+      </li>
+    </>
+  );
+}
+
+function NotLoggedIn() {
+  return (
+    <li>
+      <a className="dropdown-item" href="/">
+        Sign In/Register
+      </a>
+    </li>
+  );
+}
+
+function Navbar({status}) {
   return (
     <>
       <nav className="navbar navbar-expand-lg bg-body-tertiary">
@@ -77,15 +104,7 @@ function Navbar() {
                   My Account
                 </a>
                 <ul className="dropdown-menu">
-                    <li>
-                    <a className="dropdown-item" href="/">Account Dashboard</a> 
-                    </li>
-                    <li>
-                    <a className="dropdown-item" href="/">Sign In/Register</a> 
-                    </li>
-                    <li>
-                    <a className="dropdown-item" href="/">Sign Out</a> 
-                    </li>
+                  {status === true ? <LoggedIn /> : <NotLoggedIn />}
                 </ul>
               </li>
             </ul>
