@@ -1,18 +1,14 @@
+import { useState } from "react";
 import mainLogo from "./assets/mcd.jpg";
+import Homepage from "./Homepage";
+import CareersPage from "./CareersPage";
+import MainPageBody from "./MainPageBody";
 
 function LoggedIn() {
   return (
     <>
-      <li>
-        <a className="dropdown-item" href="/">
-          Account Dashboard
-        </a>
-      </li>
-      <li>
-        <a className="dropdown-item" href="/">
-          Sign Out
-        </a>
-      </li>
+      <li className="dropdown-item">Account Dashboard</li>
+      <li className="dropdown-item">Sign Out</li>
     </>
   );
 }
@@ -27,7 +23,15 @@ function NotLoggedIn() {
   );
 }
 
-function Navbar({status}) {
+// function clickHandler() {
+//   console.log("I clicked ABOUT");
+// }
+
+function Navbar({ status }) {
+  const [activeTab, setActiveTab] = useState("Homepage");
+  function clickHandler(tabInfo) {
+    setActiveTab(tabInfo);
+  }
   return (
     <>
       <nav className="navbar navbar-expand-lg bg-body-tertiary">
@@ -48,7 +52,79 @@ function Navbar({status}) {
           </button>
           <div className="collapse navbar-collapse" id="navbarSupportedContent">
             <ul className="navbar-nav me-auto mb-2 mb-lg-0">
-              <li className="nav-item">
+              <li
+                className="btn nav-item nav-link active"
+                onClick={() => clickHandler("Homepage")}
+              >
+                Home
+              </li>
+              <li
+                className="btn nav-item nav-link active"
+                onClick={() => clickHandler("AboutPage")}
+              >
+                About
+              </li>
+              <li
+                className="nav-item nav-link active btn"
+                onClick={() => clickHandler("DonationsPage")}
+              >
+                Request A Donation
+              </li>
+              <li
+                className="nav-item nav-link active btn"
+                onClick={() => clickHandler("CareersPage")}
+              >
+                Careers
+              </li>
+              <li
+                className="btn nav-item nav-link active"
+                onClick={() => clickHandler("ContactUsPage")}
+              >
+                Contact Us
+              </li>
+              <li
+                className="btn bg-info nav-item nav-link dropdown"
+                data-bs-toggle="dropdown"
+                href="#"
+                role="button"
+                aria-expanded="false"
+              >
+                My Account
+                <ul className="dropdown-menu">
+                  {status === true ? <LoggedIn /> : <NotLoggedIn />}
+                </ul>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+      <MainPageBody activeTab={activeTab} />
+    </>
+  );
+}
+
+export default Navbar;
+
+{
+  /* <nav className="navbar navbar-expand-lg bg-body-tertiary">
+        <div className="container-fluid">
+          <a className="navbar-brand" href="/">
+            <img src={mainLogo} alt="logo" width="30" height="24" />
+          </a>
+          <button
+            className="navbar-toggler"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+          >
+            <span className="navbar-toggler-icon"></span>
+          </button>
+          <div className="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul className="navbar-nav me-auto mb-2 mb-lg-0">
+              <li className="nav-item nav-link active">
                 <a
                   className="nav-link active"
                   aria-current="page"
@@ -58,7 +134,7 @@ function Navbar({status}) {
                   Home
                 </a>
               </li>
-              <li className="nav-item">
+              <li className="nav-item" onClick={clickHandler}>
                 <a className="nav-link active" aria-current="page" href="#">
                   About
                 </a>
@@ -110,9 +186,5 @@ function Navbar({status}) {
             </ul>
           </div>
         </div>
-      </nav>
-    </>
-  );
+      </nav> */
 }
-
-export default Navbar;

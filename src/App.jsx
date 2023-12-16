@@ -9,15 +9,17 @@ import './App.css'
 import './index.css'
 import "../src/scss/styles.scss"
 import * as bootstrap from "bootstrap";
+import AccountPage from './AccountPage'
 
-const isLoggedIn = false;
+const isLoggedIn = true;
+
+const display = [Homepage, DonationsPage, CareersPage];
 
 function App() {
 
   return (
     <div>
       <Navbar status={isLoggedIn}/>
-      <MainPageBody />
       <Footer />
     </div>
   )
