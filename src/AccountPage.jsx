@@ -49,9 +49,3 @@ function AccountPage() {
 }
 
 export default AccountPage;
-
-
-{/* <h1 className="">
-                Welcome &lt;%= currentUser.firstname[0].toUpperCase() +
-                currentUser.firstname.slice(1) %&gt;!
-              </h1> */}
