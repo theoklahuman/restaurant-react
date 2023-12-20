@@ -1,20 +1,14 @@
 import { useState } from "react";
 import mainLogo from "./assets/mcd.jpg";
-import Homepage from "./Homepage";
-import CareersPage from "./CareersPage";
-import MainPageBody from "./MainPageBody";
 
-function Navbar({ status }) {
+function Navbar({ status, onSelect }) {
   function LoggedIn() {
     return (
       <>
-        <li
-          className="dropdown-item"
-          onClick={() => clickHandler("AccountsPage")}
-        >
+        <li className="dropdown-item" onClick={() => onSelect("AccountsPage")}>
           Account Dashboard
         </li>
-        <li className="dropdown-item" onClick={() => clickHandler("Homepage")}>
+        <li className="dropdown-item" onClick={() => onSelect("Homepage")}>
           Sign Out
         </li>
       </>
@@ -29,10 +23,6 @@ function Navbar({ status }) {
         </a>
       </li>
     );
-  }
-  const [activeTab, setActiveTab] = useState("Homepage");
-  function clickHandler(tabInfo) {
-    setActiveTab(tabInfo);
   }
   return (
     <>
@@ -56,31 +46,31 @@ function Navbar({ status }) {
             <ul className="navbar-nav me-auto mb-2 mb-lg-0">
               <li
                 className="btn nav-item nav-link active"
-                onClick={() => clickHandler("Homepage")}
+                onClick={() => onSelect("Homepage")}
               >
                 Home
               </li>
               <li
                 className="btn nav-item nav-link active"
-                onClick={() => clickHandler("AboutPage")}
+                onClick={() => onSelect("AboutPage")}
               >
                 About
               </li>
               <li
                 className="nav-item nav-link active btn"
-                onClick={() => clickHandler("DonationsPage")}
+                onClick={() => onSelect("DonationsPage")}
               >
                 Request A Donation
               </li>
               <li
                 className="nav-item nav-link active btn"
-                onClick={() => clickHandler("CareersPage")}
+                onClick={() => onSelect("CareersPage")}
               >
                 Careers
               </li>
               <li
                 className="btn nav-item nav-link active"
-                onClick={() => clickHandler("ContactUsPage")}
+                onClick={() => onSelect("ContactUsPage")}
               >
                 Contact Us
               </li>
@@ -100,7 +90,6 @@ function Navbar({ status }) {
           </div>
         </div>
       </nav>
-      <MainPageBody activeTab={activeTab} />
     </>
   );
 }

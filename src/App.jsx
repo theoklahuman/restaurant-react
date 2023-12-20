@@ -1,28 +1,27 @@
-import Navbar from './Navbar'
-import Footer from './Footer'
-import DonationsPage from './DonationsPage'
-import CareersPage from './CareersPage'
-import ContactUsPage from './ContactUsPage'
-import MainPageBody from './MainPageBody'
-import Homepage from './Homepage'
-import './App.css'
-import './index.css'
-import "../src/scss/styles.scss"
+import Navbar from "./Navbar";
+import Footer from "./Footer";
+import MainPageBody from "./MainPageBody";
+import { useState } from "react";
+import "./App.css";
+import "./index.css";
+import "../src/scss/styles.scss";
 import * as bootstrap from "bootstrap";
-import AccountPage from './AccountPage'
 
 const isLoggedIn = true;
 
-const display = [Homepage, DonationsPage, CareersPage];
-
 function App() {
+  const [activeTab, setActiveTab] = useState("Homepage");
+  function loadTab(tabInfo) {
+    setActiveTab(tabInfo);
+  }
 
   return (
-    <div>
-      <Navbar status={isLoggedIn}/>
+    <div className="App">
+      <Navbar status={isLoggedIn} onSelect={loadTab} />
+      <MainPageBody activeTab={activeTab} />
       <Footer />
     </div>
-  )
+  );
 }
 
-export default App
+export default App;
