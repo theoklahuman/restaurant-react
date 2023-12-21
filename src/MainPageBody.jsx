@@ -4,8 +4,10 @@ import ContactUsPage from "./ContactUsPage";
 import DonationsPage from "./DonationsPage";
 import AccountPage from "./AccountPage";
 import AboutPage from "./AboutPage";
+import LoginPage from "./LoginPage";
+import RegisterPage from "./RegisterPage";
 
-function MainPageBody({activeTab}) {
+function MainPageBody({activeTab, onSelect}) {
   if (activeTab === "CareersPage") {
     return <CareersPage />;
   } else if (activeTab === "DonationsPage") {
@@ -16,6 +18,10 @@ function MainPageBody({activeTab}) {
     return <AccountPage user="Mr Grinch"/>;
   } else if (activeTab === "AboutPage") {
     return <AboutPage />
+  } else if (activeTab === "LoginPage") {
+    return <LoginPage onSelect={onSelect}/>
+  } else if (activeTab === "RegisterPage") {
+    return <RegisterPage />
   } else {
     return <Homepage />;
   }

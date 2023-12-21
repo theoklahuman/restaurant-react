@@ -17,10 +17,8 @@ function Navbar({ status, onSelect }) {
 
   function NotLoggedIn() {
     return (
-      <li>
-        <a className="dropdown-item" href="/">
+      <li className="dropdown-item btn" onClick={() => onSelect("LoginPage")}>
           Sign In/Register
-        </a>
       </li>
     );
   }

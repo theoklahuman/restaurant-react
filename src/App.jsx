@@ -7,7 +7,7 @@ import "./index.css";
 import "../src/scss/styles.scss";
 import * as bootstrap from "bootstrap";
 
-const isLoggedIn = true;
+const isLoggedIn = false;
 
 function App() {
   const [activeTab, setActiveTab] = useState("Homepage");
@@ -18,7 +18,7 @@ function App() {
   return (
     <div className="App">
       <Navbar status={isLoggedIn} onSelect={loadTab} />
-      <MainPageBody activeTab={activeTab} />
+      <MainPageBody activeTab={activeTab} onSelect={loadTab}/>
       <Footer />
     </div>
   );
