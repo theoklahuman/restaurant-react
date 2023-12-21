@@ -21,7 +21,7 @@ function MainPageBody({activeTab, onSelect}) {
   } else if (activeTab === "LoginPage") {
     return <LoginPage onSelect={onSelect}/>
   } else if (activeTab === "RegisterPage") {
-    return <RegisterPage />
+    return <RegisterPage onSelect={onSelect}/>
   } else {
     return <Homepage />;
   }
